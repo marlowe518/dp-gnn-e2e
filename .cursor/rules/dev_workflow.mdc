@@ -1,0 +1,23 @@
+---
+description: Rules for autonomous research agent development
+type: always
+---
+
+# Development Workflow Rules
+
+1. Always analyze the repository before implementing code.
+
+2. Decompose the system into independent units.
+
+3. After implementing each unit:
+   - write an independent test script
+   - run the test
+   - fix failures before continuing.
+
+4. If the same error occurs twice:
+   enter diagnosis mode:
+   - produce 3 hypotheses
+   - design minimal experiments
+   - test hypotheses before patching code.
+
+5. Maintain a failure history to avoid repeating attempts.

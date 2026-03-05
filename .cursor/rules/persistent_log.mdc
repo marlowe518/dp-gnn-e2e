@@ -1,0 +1,21 @@
+# Persistent Logging
+
+`AI_LOG.md` is the persistent memory of this repository.
+
+Start of session:
+1. Read the latest entry in `AI_LOG.md`.
+2. Continue from **Next Steps**.
+
+During work:
+- After any meaningful change (implementation, bug fix, test),
+  append a short update to `AI_LOG.md`.
+
+Log format:
+[date] Goal / Work / Results / Next Steps / Checkpoint(commit, branch)
+
+If the session ended unexpectedly:
+- inspect recent changes and append a **Recovery** entry.
+
+Rules:
+- append only, never delete history
+- always include reproducible commands when possible

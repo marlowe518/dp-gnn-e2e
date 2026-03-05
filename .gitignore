@@ -1,0 +1,26 @@
+
+# datasets (local only — download via ogb library)
+datasets/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Model checkpoints
+*.pt
+*.pth
+*.npz
+*.npy
+*.pkl
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+
+# Pytest
+.pytest_cache/
+
+# Misc
+/tmp/
