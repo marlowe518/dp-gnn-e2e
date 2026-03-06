@@ -1,28 +1,21 @@
-"""Train DP-GCN on ogbn-arxiv-disjoint with reference settings."""
-
+"""Run DP-GCN training on ogbn-arxiv with the reference config."""
 import sys
+import time
+
 sys.path.insert(0, '.')
-sys.stdout.reconfigure(line_buffering=True)
 
 from dp_gnn.configs.dpgcn import get_config
 from dp_gnn import train
 
+config = get_config()
+config.device = 'cuda'
 
-def main():
-    config = get_config()
-    config.device = 'cuda'
-    config.batch_size = 1000
-    config.num_training_steps = 100
-    config.evaluate_every_steps = 20
-    print(f"Config: model={config.model}, lr={config.learning_rate}, "
-          f"latent={config.latent_size}, "
-          f"batch={config.batch_size}, steps={config.num_training_steps}, "
-          f"noise={config.training_noise_multiplier}, "
-          f"max_eps={config.max_training_epsilon}",
-          flush=True)
-    model = train.train_and_evaluate(config, workdir='/tmp/dp_gnn_dpgcn_arxiv')
-    print("Training complete.", flush=True)
+print('=== DP-GCN Training on ogbn-arxiv ===')
+print(f'Config: lr={config.learning_rate}, noise_mult={config.training_noise_multiplier}, '
+      f'batch_size={config.batch_size}, max_degree={config.max_degree}, '
+      f'latent_size={config.latent_size}, steps={config.num_training_steps}')
 
-
-if __name__ == '__main__':
-    main()
+t0 = time.time()
+model = train.train_and_evaluate(config)
+elapsed = time.time() - t0
+print(f'\nTotal training time: {elapsed:.0f}s ({elapsed/3600:.1f}h)')

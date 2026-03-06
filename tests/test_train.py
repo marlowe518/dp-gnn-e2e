@@ -75,9 +75,13 @@ class TestPerExampleGradients:
 
         batch_idx = torch.randint(num_nodes, (config.batch_size,))
 
+        sub_weights = None
+        if model_type == 'gcn':
+            sub_weights = train._precompute_subgraph_weights(
+                subgraphs, config.adjacency_normalization)
         per_eg_grads = train.compute_updates_for_dp(
             model, data, labels, subgraphs, batch_idx,
-            config.adjacency_normalization)
+            sub_weights=sub_weights)
         per_eg_summed = {name: g.sum(dim=0) for name, g in per_eg_grads.items()}
 
         batched_grads = train.compute_updates(model, data, labels, batch_idx)

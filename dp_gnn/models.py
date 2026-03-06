@@ -11,10 +11,24 @@ PyTorch / PyG.  The key components are:
 
 from typing import Callable, List, Optional, Sequence
 
+import math
+
 import torch
 import torch.nn as nn
 from torch_geometric.data import Data
 from torch_geometric.utils import degree
+
+
+_TRUNCNORM_STD_FACTOR = 0.87962566103423978
+
+
+def _lecun_normal_init(layer: nn.Linear) -> None:
+    """Flax/JAX lecun_normal: truncated normal with post-truncation variance = 1/fan_in."""
+    fan_in = layer.in_features
+    std = 1.0 / math.sqrt(fan_in) / _TRUNCNORM_STD_FACTOR
+    nn.init.trunc_normal_(layer.weight, mean=0.0, std=std, a=-2 * std, b=2 * std)
+    if layer.bias is not None:
+        nn.init.zeros_(layer.bias)
 
 
 class MultiLayerPerceptron(nn.Module):
@@ -36,7 +50,9 @@ class MultiLayerPerceptron(nn.Module):
         dims = [input_dim] + list(latent_sizes)
         self.layers = nn.ModuleList()
         for i in range(len(latent_sizes)):
-            self.layers.append(nn.Linear(dims[i], dims[i + 1]))
+            linear = nn.Linear(dims[i], dims[i + 1])
+            _lecun_normal_init(linear)
+            self.layers.append(linear)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         for index, layer in enumerate(self.layers):

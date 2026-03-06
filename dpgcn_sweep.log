@@ -1,0 +1,267 @@
+
+============================================================
+Running: noise=0.5, lr=0.001
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+Privacy budget exhausted at step 50, epsilon=18.6389
+
+============================================================
+Running: noise=0.5, lr=0.003
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+Privacy budget exhausted at step 50, epsilon=18.6389
+
+============================================================
+Running: noise=0.5, lr=0.005
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+Privacy budget exhausted at step 50, epsilon=18.6389
+
+============================================================
+Running: noise=1.0, lr=0.001
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+num_steps:  50, train_loss: 2.7950, train_accuracy: 27.1748, val_loss: 2.7316, val_accuracy: 28.5110, test_loss: 2.7411, test_accuracy: 25.5519, epsilon: 7.7742
+num_steps: 100, train_loss: 2.4507, train_accuracy: 35.0282, val_loss: 2.3789, val_accuracy: 36.3502, test_loss: 2.4064, test_accuracy: 35.0493, epsilon: 10.7936
+Privacy budget exhausted at step 150, epsilon=13.3304
+
+============================================================
+Running: noise=1.0, lr=0.003
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+num_steps:  50, train_loss: 2.2628, train_accuracy: 41.2399, val_loss: 2.1944, val_accuracy: 42.3974, test_loss: 2.2208, test_accuracy: 42.5241, epsilon: 7.7742
+num_steps: 100, train_loss: 1.9460, train_accuracy: 47.0360, val_loss: 1.9110, val_accuracy: 48.6057, test_loss: 1.9343, test_accuracy: 47.7728, epsilon: 10.7936
+Privacy budget exhausted at step 150, epsilon=13.3304
+
+============================================================
+Running: noise=1.0, lr=0.005
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+num_steps:  50, train_loss: 2.0541, train_accuracy: 44.9137, val_loss: 2.0231, val_accuracy: 46.1559, test_loss: 2.0509, test_accuracy: 45.2606, epsilon: 7.7742
+num_steps: 100, train_loss: 1.7845, train_accuracy: 51.3256, val_loss: 1.7669, val_accuracy: 52.4145, test_loss: 1.7815, test_accuracy: 51.5462, epsilon: 10.7936
+Privacy budget exhausted at step 150, epsilon=13.3304
+
+============================================================
+Running: noise=2.0, lr=0.001
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+num_steps:  50, train_loss: 2.9134, train_accuracy: 21.5634, val_loss: 2.8777, val_accuracy: 16.0274, test_loss: 2.8800, test_accuracy: 13.5033, epsilon: 3.4684
+num_steps: 100, train_loss: 2.6882, train_accuracy: 28.0226, val_loss: 2.6283, val_accuracy: 29.8466, test_loss: 2.6417, test_accuracy: 27.2555, epsilon: 4.7603
+num_steps: 150, train_loss: 2.4971, train_accuracy: 33.8934, val_loss: 2.4266, val_accuracy: 35.5683, test_loss: 2.4509, test_accuracy: 34.2942, epsilon: 5.8209
+num_steps: 200, train_loss: 2.3590, train_accuracy: 38.3798, val_loss: 2.2909, val_accuracy: 39.6691, test_loss: 2.3206, test_accuracy: 39.4564, epsilon: 6.7557
+num_steps: 250, train_loss: 2.2661, train_accuracy: 40.9155, val_loss: 2.2093, val_accuracy: 41.6793, test_loss: 2.2438, test_accuracy: 41.0551, epsilon: 7.6075
+num_steps: 300, train_loss: 2.1943, train_accuracy: 42.0822, val_loss: 2.1410, val_accuracy: 42.9175, test_loss: 2.1750, test_accuracy: 42.1065, epsilon: 8.3993
+num_steps: 350, train_loss: 2.1393, train_accuracy: 43.1544, val_loss: 2.0918, val_accuracy: 44.0753, test_loss: 2.1260, test_accuracy: 43.1908, epsilon: 9.1459
+num_steps: 400, train_loss: 2.0875, train_accuracy: 44.1308, val_loss: 2.0399, val_accuracy: 45.4143, test_loss: 2.0706, test_accuracy: 44.3450, epsilon: 9.8536
+num_steps: 450, train_loss: 2.0420, train_accuracy: 45.0171, val_loss: 1.9956, val_accuracy: 46.5217, test_loss: 2.0246, test_accuracy: 45.4231, epsilon: 10.5335
+num_steps: 500, train_loss: 2.0009, train_accuracy: 45.9177, val_loss: 1.9600, val_accuracy: 47.5419, test_loss: 1.9888, test_accuracy: 46.4766, epsilon: 11.1874
+num_steps: 550, train_loss: 1.9624, train_accuracy: 46.7105, val_loss: 1.9237, val_accuracy: 48.4916, test_loss: 1.9531, test_accuracy: 47.4662, epsilon: 11.8188
+ERROR: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 14.38 MiB is free. Including non-PyTorch memory, this process has 20.82 GiB memory in use. Process 6440 has 2.68 GiB memory in use. Of the allocated memory 18.53 GiB is allocated by PyTorch, and 1.84 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+============================================================
+Running: noise=2.0, lr=0.003
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'encoder.layers.0.weight': 3.1186107397079468, 'encoder.layers.0.bias': 1.2115269005298615, 'core_hops.0.update_fn.layers.0.weight': 1.796020120382309, 'core_hops.0.update_fn.layers.0.bias': 0.9065243452787399, 'decoder.layers.0.weight': 2.748708128929138, 'decoder.layers.0.bias': 0.9924480766057968}
+Base sensitivity: 12.0
+num_steps:   0, train_loss_after_init: 3.7012, train_accuracy_after_init: 3.7343, val_loss_after_init: 3.7886, val_accuracy_after_init: 2.6242, test_loss_after_init: 3.8280, test_accuracy_after_init: 2.4587, epsilon_after_init: 0.0000
+num_steps:  50, train_loss: 2.5225, train_accuracy: 32.9554, val_loss: 2.4684, val_accuracy: 33.6656, test_loss: 2.4976, test_accuracy: 31.2409, epsilon: 3.4684
+ERROR: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 10.38 MiB is free. Including non-PyTorch memory, this process has 22.63 GiB memory in use. Process 6555 has 892.00 MiB memory in use. Of the allocated memory 20.09 GiB is allocated by PyTorch, and 2.09 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+============================================================
+Running: noise=2.0, lr=0.005
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Building subgraphs...
+Pre-computing subgraph weights...
+Subgraphs built.
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+ERROR: CUDA out of memory. Tried to allocate 490.00 MiB. GPU 0 has a total capacity of 23.53 GiB of which 167.69 MiB is free. Including non-PyTorch memory, this process has 23.35 GiB memory in use. Of the allocated memory 20.82 GiB is allocated by PyTorch, and 2.08 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

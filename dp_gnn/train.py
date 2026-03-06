@@ -12,7 +12,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.func import functional_call, grad, vmap
-from torch_geometric.data import Batch, Data
+from torch_geometric.data import Data
 
 from dp_gnn import input_pipeline
 from dp_gnn import models
@@ -221,18 +221,19 @@ def _compute_per_example_grads_mlp_vmap(
     labels: torch.Tensor,
     subgraphs: torch.Tensor,
     node_indices: torch.Tensor,
+    chunk_size: int = 2000,
 ) -> Dict[str, torch.Tensor]:
     """Vectorized per-example gradients for MLP using torch.func.vmap.
 
-    Since MLP ignores graph structure, we extract node features and use
-    functional transforms for efficient batched gradient computation.
+    Returns per-example gradients of shape [B, *param_shape].
+    Processes in chunks to limit peak memory.
+    Used for threshold estimation (small B).
     """
     device = data.x.device
-    # subgraphs[node_indices, 0] gives actual global node IDs for pad_to=1
     node_indices_cpu = node_indices.cpu() if node_indices.is_cuda else node_indices
     global_ids = subgraphs[node_indices_cpu, 0].to(device)
-    batch_x = data.x[global_ids]  # [B, F]
-    batch_labels = labels[node_indices_cpu].to(device)  # [B, C]
+    batch_x = data.x[global_ids]
+    batch_labels = labels[node_indices_cpu].to(device)
 
     mlp_module = model.mlp
     params = dict(mlp_module.named_parameters())
@@ -242,74 +243,288 @@ def _compute_per_example_grads_mlp_vmap(
         return F.cross_entropy(logits.unsqueeze(0), label.unsqueeze(0))
 
     ft_per_sample_grad = vmap(grad(single_loss), in_dims=(None, 0, 0))
-    per_eg = ft_per_sample_grad(params, batch_x, batch_labels)
 
-    # Remap to full model parameter names
+    B = len(node_indices)
+    chunks_grads = []
+    for start in range(0, B, chunk_size):
+        end = min(start + chunk_size, B)
+        chunk_eg = ft_per_sample_grad(
+            params, batch_x[start:end], batch_labels[start:end])
+        chunks_grads.append(chunk_eg)
+
     per_example_grads = {}
-    for mlp_name, g in per_eg.items():
+    for mlp_name in chunks_grads[0]:
         full_name = f'mlp.{mlp_name}'
-        per_example_grads[full_name] = g / len(node_indices)
+        per_example_grads[full_name] = torch.cat(
+            [c[mlp_name] for c in chunks_grads], dim=0)
 
     return per_example_grads
 
 
-def _compute_per_example_grads_gcn_batched(
+def _clip_and_sum_mlp_vmap(
     model: nn.Module,
     data: Data,
     labels: torch.Tensor,
     subgraphs: torch.Tensor,
     node_indices: torch.Tensor,
-    adjacency_normalization: Optional[str],
+    l2_norms_threshold: Dict[str, float],
+    chunk_size: int = 500,
 ) -> Dict[str, torch.Tensor]:
-    """Per-example gradients for GCN using PyG batch + sequential backward.
+    """Memory-efficient per-example clip-and-sum for MLP.
 
-    Pre-builds all subgraphs, batches them for a single forward pass,
-    then computes per-example gradients from individual losses.
+    Computes per-example grads in chunks, clips and sums within each
+    chunk, then accumulates across chunks. Never materializes all B
+    per-example grads simultaneously.
     """
     device = data.x.device
-    batch_size = len(node_indices)
+    node_indices_cpu = node_indices.cpu() if node_indices.is_cuda else node_indices
+    global_ids = subgraphs[node_indices_cpu, 0].to(device)
+    batch_x = data.x[global_ids]
+    batch_labels = labels[node_indices_cpu].to(device)
 
-    sub_data_list = []
-    for i in range(batch_size):
-        idx = node_indices[i].item()
-        sub_data = make_subgraph_from_indices(
-            data, subgraphs[idx], adjacency_normalization)
-        sub_data_list.append(sub_data)
+    mlp_module = model.mlp
+    params = dict(mlp_module.named_parameters())
 
-    batched = Batch.from_data_list(sub_data_list).to(device)
+    def single_loss(params, x, label):
+        logits = functional_call(mlp_module, params, (x,))
+        return F.cross_entropy(logits.unsqueeze(0), label.unsqueeze(0))
 
-    # Single forward pass
-    batched_out = model(batched)
-    all_logits = batched_out.x
+    ft_per_sample_grad = vmap(grad(single_loss), in_dims=(None, 0, 0))
 
-    # Root node is always at position 0 within each subgraph
-    root_indices = batched.ptr[:-1]
-    root_logits = all_logits[root_indices]  # [B, C]
+    B = len(node_indices)
+    clipped_sum = None
 
-    batch_labels = labels[node_indices.cpu() if node_indices.is_cuda
-                          else node_indices].to(device)
+    for start in range(0, B, chunk_size):
+        end = min(start + chunk_size, B)
+        chunk_eg = ft_per_sample_grad(
+            params, batch_x[start:end], batch_labels[start:end])
 
-    # Per-example losses
-    per_example_losses = F.cross_entropy(root_logits, batch_labels, reduction='none')
+        chunk_dict = {f'mlp.{k}': v for k, v in chunk_eg.items()}
+        chunk_clipped = dp_optimizers.clip_by_norm(chunk_dict, l2_norms_threshold)
 
-    # Accumulate per-example gradients
-    param_names = [n for n, p in model.named_parameters() if p.requires_grad]
-    per_example_grads = {
-        name: torch.zeros(batch_size, *p.shape, device=device)
-        for name, p in model.named_parameters() if p.requires_grad
-    }
+        if clipped_sum is None:
+            clipped_sum = {k: v.sum(dim=0) for k, v in chunk_clipped.items()}
+        else:
+            for k in clipped_sum:
+                clipped_sum[k] += chunk_clipped[k].sum(dim=0)
 
-    for i in range(batch_size):
-        model.zero_grad()
-        per_example_losses[i].backward(retain_graph=(i < batch_size - 1))
-        for name, p in model.named_parameters():
-            if p.grad is not None:
-                per_example_grads[name][i] = p.grad.clone()
+    return clipped_sum
 
-    for name in per_example_grads:
-        per_example_grads[name] = per_example_grads[name] / batch_size
+
+def _compute_per_example_grads_gcn_vmap(
+    model: nn.Module,
+    data: Data,
+    labels: torch.Tensor,
+    subgraphs: torch.Tensor,
+    sub_weights: torch.Tensor,
+    node_indices: torch.Tensor,
+    chunk_size: int = 500,
+) -> Dict[str, torch.Tensor]:
+    """Per-example gradients for GCN using vmap + weight-vector forward.
+
+    Returns per-example gradients of shape [B, *param_shape].
+    Used for threshold estimation.
+    """
+    device = data.x.device
+    B = len(node_indices)
+    node_indices_cpu = node_indices.cpu() if node_indices.is_cuda else node_indices
+    batch_labels = labels[node_indices_cpu].to(device)
+    activation = model.encoder.activation
+    params = dict(model.named_parameters())
+
+    def single_loss(params, sub_x_i, sub_w_i, label_i):
+        logits = _gcn_forward_root_only(params, sub_x_i, sub_w_i, activation)
+        return F.cross_entropy(logits.unsqueeze(0), label_i.unsqueeze(0))
+
+    ft_per_sample_grad = vmap(grad(single_loss), in_dims=(None, 0, 0, 0))
+
+    chunks_grads = []
+    for start in range(0, B, chunk_size):
+        end = min(start + chunk_size, B)
+        chunk_indices = node_indices[start:end]
+
+        sub_x = _gather_subgraph_features_batch(data.x, subgraphs, chunk_indices)
+        chunk_w = sub_weights[chunk_indices.cpu()
+                              if chunk_indices.is_cuda
+                              else chunk_indices].to(device)
+        chunk_labels = batch_labels[start:end]
+
+        chunk_eg = ft_per_sample_grad(params, sub_x, chunk_w, chunk_labels)
+        chunks_grads.append(chunk_eg)
+
+        del sub_x, chunk_w
+        torch.cuda.empty_cache()
+
+    per_example_grads = {}
+    for name in chunks_grads[0]:
+        per_example_grads[name] = torch.cat(
+            [c[name] for c in chunks_grads], dim=0)
 
     return per_example_grads
+
+
+def _precompute_subgraph_weights(
+    train_subgraphs: torch.Tensor,
+    adjacency_normalization: Optional[str],
+) -> torch.Tensor:
+    """Vectorized weight vectors for root message aggregation.
+
+    For each training node's subgraph, computes the weight vector used
+    to aggregate neighbor features to the root node.  All valid edges
+    in a subgraph share the same weight because the root is the only
+    sender in the subgraph edge structure.
+
+    Returns:
+        weights: [N_train, pad_to + 1] (last col is padding node, always 0)
+    """
+    _N, pad_to = train_subgraphs.shape
+    valid_mask = (train_subgraphs != _SUBGRAPH_PADDING_VALUE)
+    num_valid = valid_mask.float().sum(dim=1, keepdim=True).clamp(min=1)
+
+    weights = torch.zeros(_N, pad_to + 1)
+    if adjacency_normalization is None:
+        weights[:, :pad_to] = valid_mask.float()
+    elif adjacency_normalization == 'inverse-degree':
+        weights[:, :pad_to] = valid_mask.float() / num_valid
+    elif adjacency_normalization == 'inverse-sqrt-degree':
+        weights[:, :pad_to] = valid_mask.float() / num_valid.sqrt()
+    else:
+        raise ValueError(f'Unknown adj norm: {adjacency_normalization}')
+
+    return weights
+
+
+def _gather_subgraph_features_batch(
+    data_x: torch.Tensor,
+    subgraphs: torch.Tensor,
+    node_indices: torch.Tensor,
+) -> torch.Tensor:
+    """Vectorized feature gathering for a batch of subgraphs.
+
+    Returns:
+        sub_x: [B, pad_to + 1, F] — last node per subgraph is zero-padding.
+    """
+    device = data_x.device
+    node_indices_cpu = (node_indices.cpu()
+                        if node_indices.is_cuda else node_indices)
+    batch_sg = subgraphs[node_indices_cpu]
+
+    valid_mask = (batch_sg != _SUBGRAPH_PADDING_VALUE)
+    safe_sg = batch_sg.clone()
+    safe_sg[~valid_mask] = 0
+
+    sub_x = data_x[safe_sg.to(device)]
+    sub_x = sub_x * valid_mask.to(device).unsqueeze(-1).float()
+
+    B, pad_to, F = sub_x.shape
+    padding = torch.zeros(B, 1, F, device=device, dtype=sub_x.dtype)
+    sub_x = torch.cat([sub_x, padding], dim=1)
+    return sub_x
+
+
+def _get_layer_ids(params, prefix):
+    """Extract sorted integer layer IDs from a parameter dict."""
+    ids = set()
+    for k in params:
+        if k.startswith(prefix):
+            rest = k[len(prefix):]
+            lid = rest.split('.')[0]
+            if lid.isdigit():
+                ids.add(int(lid))
+    return sorted(ids)
+
+
+def _gcn_forward_root_only(params, sub_x, sub_w, activation):
+    """Functional GCN forward pass optimised for root-node output.
+
+    Only supports 1-hop message passing (num_message_passing_steps == 1).
+    sub_x: [pad_to+1, F], sub_w: [pad_to+1]
+    Returns root logits: [C]
+    """
+    h = sub_x
+
+    for lid in _get_layer_ids(params, 'encoder.layers.'):
+        w = params[f'encoder.layers.{lid}.weight']
+        b = params[f'encoder.layers.{lid}.bias']
+        h = h @ w.t() + b
+        h = activation(h)
+
+    h_root = sub_w @ h
+    for hop_id in _get_layer_ids(params, 'core_hops.'):
+        w = params[f'core_hops.{hop_id}.update_fn.layers.0.weight']
+        b = params[f'core_hops.{hop_id}.update_fn.layers.0.bias']
+        h_root_new = h_root @ w.t() + b
+        h_root_new = activation(h_root_new)
+        if h_root_new.shape == h_root.shape:
+            h_root_new = h_root_new + h_root
+        h_root = h_root_new
+
+    h = h_root
+    decoder_ids = _get_layer_ids(params, 'decoder.layers.')
+    for i, lid in enumerate(decoder_ids):
+        w = params[f'decoder.layers.{lid}.weight']
+        b = params[f'decoder.layers.{lid}.bias']
+        h = h @ w.t() + b
+        if i < len(decoder_ids) - 1:
+            h = activation(h)
+
+    return h
+
+
+def _clip_and_sum_gcn_vmap(
+    model: nn.Module,
+    data: Data,
+    labels: torch.Tensor,
+    subgraphs: torch.Tensor,
+    sub_weights: torch.Tensor,
+    node_indices: torch.Tensor,
+    l2_norms_threshold: Dict[str, float],
+    chunk_size: int = 500,
+) -> Dict[str, torch.Tensor]:
+    """Memory-efficient per-example clip-and-sum for GCN using vmap.
+
+    Uses vectorized feature gathering and weight-vector-based message
+    passing (root-only forward) to avoid building subgraphs one-by-one.
+    """
+    device = data.x.device
+    B = len(node_indices)
+    node_indices_cpu = node_indices.cpu() if node_indices.is_cuda else node_indices
+    batch_labels = labels[node_indices_cpu].to(device)
+    activation = model.encoder.activation
+
+    params = dict(model.named_parameters())
+
+    def single_loss(params, sub_x_i, sub_w_i, label_i):
+        logits = _gcn_forward_root_only(params, sub_x_i, sub_w_i, activation)
+        return F.cross_entropy(logits.unsqueeze(0), label_i.unsqueeze(0))
+
+    ft_grad = vmap(grad(single_loss), in_dims=(None, 0, 0, 0))
+
+    clipped_sum = None
+
+    for start in range(0, B, chunk_size):
+        end = min(start + chunk_size, B)
+        chunk_indices = node_indices[start:end]
+
+        sub_x = _gather_subgraph_features_batch(data.x, subgraphs, chunk_indices)
+        chunk_w = sub_weights[chunk_indices.cpu()
+                              if chunk_indices.is_cuda
+                              else chunk_indices].to(device)
+        chunk_labels = batch_labels[start:end]
+
+        chunk_grads = ft_grad(params, sub_x, chunk_w, chunk_labels)
+        chunk_clipped = dp_optimizers.clip_by_norm(chunk_grads, l2_norms_threshold)
+
+        if clipped_sum is None:
+            clipped_sum = {k: v.sum(dim=0) for k, v in chunk_clipped.items()}
+        else:
+            for k in clipped_sum:
+                clipped_sum[k] += chunk_clipped[k].sum(dim=0)
+
+        del sub_x, chunk_w, chunk_grads, chunk_clipped
+        torch.cuda.empty_cache()
+
+    return clipped_sum
 
 
 def compute_updates_for_dp(
@@ -318,21 +533,19 @@ def compute_updates_for_dp(
     labels: torch.Tensor,
     subgraphs: torch.Tensor,
     node_indices: torch.Tensor,
-    adjacency_normalization: Optional[str],
+    sub_weights: Optional[torch.Tensor] = None,
 ) -> Dict[str, torch.Tensor]:
     """Per-example gradient computation for DP training.
 
-    Dispatches to optimized implementations:
-    - MLP: vectorized vmap-based (fast, handles batch_size=10K efficiently)
-    - GCN: batched forward + sequential backward
+    Dispatches to optimized vmap implementations for both MLP and GCN.
     """
     if isinstance(model, models.GraphMultiLayerPerceptron):
         return _compute_per_example_grads_mlp_vmap(
             model, data, labels, subgraphs, node_indices)
     else:
-        return _compute_per_example_grads_gcn_batched(
-            model, data, labels, subgraphs, node_indices,
-            adjacency_normalization)
+        return _compute_per_example_grads_gcn_vmap(
+            model, data, labels, subgraphs, sub_weights,
+            node_indices)
 
 
 # ---------------------------------------------------------------------------
@@ -346,12 +559,12 @@ def estimate_clipping_thresholds(
     subgraphs: torch.Tensor,
     estimation_indices: torch.Tensor,
     l2_norm_clip_percentile: float,
-    adjacency_normalization: Optional[str],
+    sub_weights: Optional[torch.Tensor] = None,
 ) -> Dict[str, float]:
     """Estimates per-layer gradient clipping thresholds from a sample."""
     per_eg_grads = compute_updates_for_dp(
         model, data, labels, subgraphs, estimation_indices,
-        adjacency_normalization)
+        sub_weights=sub_weights)
 
     thresholds = {}
     for name, grad in per_eg_grads.items():
@@ -442,15 +655,19 @@ def train_and_evaluate(config, workdir: str = '/tmp/dp_gnn'):
     print(f'Num edges: {data.edge_index.size(1)}')
     print(f'Feature dim: {data.x.shape[1]}')
 
-    # Subgraphs for DP (keep on CPU — per-example loop is sequential)
+    # Subgraphs for DP (keep on CPU — indexed per batch)
     if config.differentially_private_training:
         print('Building subgraphs...')
         subgraphs = get_subgraphs(data, pad_to=config.pad_subgraphs_to)
         train_subgraphs = subgraphs[train_indices]
         del subgraphs
+        print('Pre-computing subgraph weights...')
+        sub_weights = _precompute_subgraph_weights(
+            train_subgraphs, config.adjacency_normalization)
         print('Subgraphs built.')
     else:
         train_subgraphs = None
+        sub_weights = None
 
     # Privacy accountant
     max_terms = compute_max_terms_per_node(config)
@@ -481,7 +698,7 @@ def train_and_evaluate(config, workdir: str = '/tmp/dp_gnn'):
         l2_norms_threshold = estimate_clipping_thresholds(
             model, data, train_labels, train_subgraphs,
             estimation_indices, config.l2_norm_clip_percentile,
-            config.adjacency_normalization)
+            sub_weights=sub_weights)
         base_sensitivity = compute_base_sensitivity(config)
         print(f'Clipping thresholds: {l2_norms_threshold}')
         print(f'Base sensitivity: {base_sensitivity}')
@@ -525,17 +742,32 @@ def train_and_evaluate(config, workdir: str = '/tmp/dp_gnn'):
         batch_idx = batch_idx.to(device)
 
         if config.differentially_private_training:
-            per_eg_grads = compute_updates_for_dp(
-                model, data, train_labels, train_subgraphs, batch_idx,
-                config.adjacency_normalization)
-            noisy_grads = dp_optimizers.dp_aggregate(
-                per_eg_grads, l2_norms_threshold,
-                base_sensitivity, config.training_noise_multiplier,
-                dp_gen)
+            if isinstance(model, models.GraphMultiLayerPerceptron):
+                clipped_sum = _clip_and_sum_mlp_vmap(
+                    model, data, train_labels, train_subgraphs, batch_idx,
+                    l2_norms_threshold)
+            else:
+                clipped_sum = _clip_and_sum_gcn_vmap(
+                    model, data, train_labels, train_subgraphs, sub_weights,
+                    batch_idx, l2_norms_threshold)
+
+            noisy_grads = {}
+            for name, summed in clipped_sum.items():
+                noise_std = (l2_norms_threshold[name] * base_sensitivity
+                             * config.training_noise_multiplier)
+                if noise_std > 0 and np.isfinite(noise_std):
+                    noise = torch.normal(
+                        mean=0.0, std=noise_std, size=summed.shape,
+                        generator=dp_gen, dtype=summed.dtype,
+                    ).to(summed.device)
+                    noisy_grads[name] = summed + noise
+                else:
+                    noisy_grads[name] = summed
+
             optimizer.zero_grad()
             for name, p in model.named_parameters():
                 if name in noisy_grads:
-                    p.grad = noisy_grads[name]
+                    p.grad = noisy_grads[name] / config.batch_size
             optimizer.step()
         else:
             grads = compute_updates(model, data, train_labels, batch_idx,

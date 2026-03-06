@@ -1,0 +1,49 @@
+=== Non-DP GCN (DP architecture) ===
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Num total nodes: 169343
+Num edges: 532308
+Feature dim: 128
+Model parameters: 27040
+num_steps:   0, train_loss_after_init: 3.7201, train_accuracy_after_init: 3.6826, val_loss_after_init: 3.8358, val_accuracy_after_init: 2.6008, test_loss_after_init: 3.8876, test_accuracy_after_init: 2.4340, epsilon_after_init: 0.0000
+num_steps: 100, train_loss: 1.4999, train_accuracy: 56.3585, val_loss: 1.4962, val_accuracy: 56.5589, test_loss: 1.5113, test_accuracy: 55.4246, epsilon: 0.0000
+num_steps: 200, train_loss: 1.3806, train_accuracy: 59.3781, val_loss: 1.4136, val_accuracy: 58.3845, test_loss: 1.4293, test_accuracy: 57.0726, epsilon: 0.0000
+num_steps: 300, train_loss: 1.3374, train_accuracy: 60.4535, val_loss: 1.3888, val_accuracy: 59.0490, test_loss: 1.4032, test_accuracy: 57.7475, epsilon: 0.0000
+num_steps: 400, train_loss: 1.3074, train_accuracy: 61.3200, val_loss: 1.3653, val_accuracy: 59.5188, test_loss: 1.3750, test_accuracy: 58.2598, epsilon: 0.0000
+num_steps: 500, train_loss: 1.2859, train_accuracy: 61.6861, val_loss: 1.3559, val_accuracy: 59.8443, test_loss: 1.3642, test_accuracy: 58.5190, epsilon: 0.0000
+num_steps: 600, train_loss: 1.2668, train_accuracy: 62.2261, val_loss: 1.3502, val_accuracy: 59.9013, test_loss: 1.3615, test_accuracy: 58.5705, epsilon: 0.0000
+num_steps: 700, train_loss: 1.2493, train_accuracy: 62.6109, val_loss: 1.3484, val_accuracy: 59.8342, test_loss: 1.3630, test_accuracy: 58.6836, epsilon: 0.0000
+num_steps: 800, train_loss: 1.2349, train_accuracy: 63.1079, val_loss: 1.3519, val_accuracy: 59.5892, test_loss: 1.3697, test_accuracy: 58.3050, epsilon: 0.0000
+num_steps: 900, train_loss: 1.2186, train_accuracy: 63.4378, val_loss: 1.3366, val_accuracy: 60.2940, test_loss: 1.3356, test_accuracy: 59.7761, epsilon: 0.0000
+num_steps: 1000, train_loss: 1.2057, train_accuracy: 63.7281, val_loss: 1.3349, val_accuracy: 60.3242, test_loss: 1.3304, test_accuracy: 59.8543, epsilon: 0.0000
+num_steps: 1100, train_loss: 1.1930, train_accuracy: 64.0272, val_loss: 1.3455, val_accuracy: 60.0121, test_loss: 1.3561, test_accuracy: 58.9593, epsilon: 0.0000
+num_steps: 1200, train_loss: 1.1775, train_accuracy: 64.4979, val_loss: 1.3435, val_accuracy: 60.1765, test_loss: 1.3506, test_accuracy: 59.3112, epsilon: 0.0000
+num_steps: 1300, train_loss: 1.1692, train_accuracy: 64.6804, val_loss: 1.3449, val_accuracy: 60.2873, test_loss: 1.3397, test_accuracy: 59.9510, epsilon: 0.0000
+num_steps: 1400, train_loss: 1.1553, train_accuracy: 65.0796, val_loss: 1.3442, val_accuracy: 60.2470, test_loss: 1.3411, test_accuracy: 59.8050, epsilon: 0.0000
+num_steps: 1500, train_loss: 1.1440, train_accuracy: 65.3347, val_loss: 1.3561, val_accuracy: 59.7000, test_loss: 1.3647, test_accuracy: 58.6445, epsilon: 0.0000
+num_steps: 1600, train_loss: 1.1347, train_accuracy: 65.6118, val_loss: 1.3582, val_accuracy: 59.9282, test_loss: 1.3656, test_accuracy: 59.0931, epsilon: 0.0000
+num_steps: 1700, train_loss: 1.1258, train_accuracy: 65.8075, val_loss: 1.3572, val_accuracy: 59.8745, test_loss: 1.3615, test_accuracy: 59.2350, epsilon: 0.0000
+num_steps: 1800, train_loss: 1.1165, train_accuracy: 66.1374, val_loss: 1.3636, val_accuracy: 59.6799, test_loss: 1.3578, test_accuracy: 59.3132, epsilon: 0.0000
+num_steps: 1900, train_loss: 1.1058, train_accuracy: 66.4310, val_loss: 1.3664, val_accuracy: 59.8342, test_loss: 1.3647, test_accuracy: 59.2083, epsilon: 0.0000
+num_steps: 2000, train_loss: 1.0992, train_accuracy: 66.5332, val_loss: 1.3705, val_accuracy: 59.9987, test_loss: 1.3615, test_accuracy: 59.4922, epsilon: 0.0000
+num_steps: 2100, train_loss: 1.0920, train_accuracy: 66.7752, val_loss: 1.3803, val_accuracy: 59.6866, test_loss: 1.3754, test_accuracy: 59.0745, epsilon: 0.0000
+num_steps: 2200, train_loss: 1.0792, train_accuracy: 67.1017, val_loss: 1.3796, val_accuracy: 59.7503, test_loss: 1.3770, test_accuracy: 58.9449, epsilon: 0.0000
+num_steps: 2300, train_loss: 1.0727, train_accuracy: 67.3382, val_loss: 1.3814, val_accuracy: 59.8242, test_loss: 1.3746, test_accuracy: 59.3667, epsilon: 0.0000
+num_steps: 2400, train_loss: 1.0690, train_accuracy: 67.4206, val_loss: 1.4006, val_accuracy: 59.0926, test_loss: 1.3980, test_accuracy: 58.3729, epsilon: 0.0000
+num_steps: 2500, train_loss: 1.0582, train_accuracy: 67.6538, val_loss: 1.3927, val_accuracy: 59.6698, test_loss: 1.3819, test_accuracy: 59.4325, epsilon: 0.0000
+num_steps: 2600, train_loss: 1.0547, train_accuracy: 67.8462, val_loss: 1.4100, val_accuracy: 59.1362, test_loss: 1.4095, test_accuracy: 58.4984, epsilon: 0.0000
+num_steps: 2700, train_loss: 1.0443, train_accuracy: 68.0562, val_loss: 1.4038, val_accuracy: 59.2570, test_loss: 1.3974, test_accuracy: 58.8256, epsilon: 0.0000
+num_steps: 2800, train_loss: 1.0387, train_accuracy: 68.1464, val_loss: 1.4197, val_accuracy: 58.9349, test_loss: 1.4192, test_accuracy: 58.0849, epsilon: 0.0000
+num_steps: 2900, train_loss: 1.0312, train_accuracy: 68.3861, val_loss: 1.4153, val_accuracy: 59.1765, test_loss: 1.4038, test_accuracy: 58.8400, epsilon: 0.0000
+num_steps: 2999, train_loss: 1.0268, train_accuracy: 68.5587, val_loss: 1.4280, val_accuracy: 58.7134, test_loss: 1.4293, test_accuracy: 57.8483, epsilon: 0.0000
+Time: 25s
