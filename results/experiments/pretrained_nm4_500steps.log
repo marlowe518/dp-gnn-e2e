@@ -1,0 +1,47 @@
+============================================================
+DP-GCN Finetuning with Pretrained Init
+============================================================
+Latent size: 100
+Num steps: 500
+Batch size: 10000
+Learning rate: 0.003
+Noise multiplier: 4.0
+Device: cuda
+Seed: 0
+Pretrain checkpoint: checkpoints/pretrain/mlp_dpgcn_match_ls100_nl3_ep100.pt
+Transfer strategy: encoder_only
+Freeze epochs: 0
+============================================================
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Building subgraphs...
+Loading pretrained MLP from checkpoints/pretrain/mlp_dpgcn_match_ls100_nl3_ep100.pt...
+Transferred 2 parameters
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds computed
+Base sensitivity: 12.0
+Initial: train_acc=21.84%, val_acc=20.21%
+Step   50: ε=1.69, train=48.06%, val=50.12%, test=50.46%
+Step  100: ε=2.19, train=51.81%, val=53.59%, test=53.33%
+Step  150: ε=2.66, train=53.77%, val=55.20%, test=55.12%
+Step  200: ε=3.08, train=54.93%, val=55.75%, test=55.58%
+Step  250: ε=3.45, train=55.54%, val=56.05%, test=55.38%
+Step  300: ε=3.79, train=56.05%, val=56.51%, test=55.93%
+Step  350: ε=4.11, train=56.35%, val=56.57%, test=56.19%
+Step  400: ε=4.42, train=56.63%, val=56.59%, test=56.00%
+Step  450: ε=4.71, train=56.88%, val=56.71%, test=56.04%
+Step  499: ε=4.98, train=57.11%, val=56.93%, test=56.40%
+
+Best: step=499, val_acc=56.93%, test_acc=56.40%
+
+Finetuning completed in 126.6s (2.1m)

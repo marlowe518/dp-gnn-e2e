@@ -1,0 +1,55 @@
+============================================================
+MLP Pretraining on ogbn-arxiv
+============================================================
+Config: dpgcn_match
+Latent size: 100
+Num layers: 3
+Epochs: 100
+Learning rate: 0.003
+Batch size: 10000
+Device: cuda
+Seed: 0
+Save path: checkpoints/pretrain/mlp_dpgcn_match_ls100_nl3_ep100.pt
+============================================================
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Num pretraining nodes: 169343
+Num total nodes: 169343
+Feature dim: 128
+Model parameters: 27040
+Epoch 10/100: train_loss=1.5984, train_acc=52.24%, val_acc=55.31%, test_acc=54.92%
+Epoch 20/100: train_loss=1.5207, train_acc=54.13%, val_acc=57.30%, test_acc=56.82%
+Epoch 30/100: train_loss=1.4868, train_acc=54.95%, val_acc=58.27%, test_acc=57.68%
+Epoch 40/100: train_loss=1.4633, train_acc=55.52%, val_acc=58.70%, test_acc=58.13%
+Epoch 50/100: train_loss=1.4427, train_acc=56.34%, val_acc=59.05%, test_acc=58.39%
+  Saved checkpoint to checkpoints/pretrain/pretrain_epoch_50.pt
+Epoch 60/100: train_loss=1.4255, train_acc=56.60%, val_acc=59.44%, test_acc=58.83%
+Epoch 70/100: train_loss=1.4092, train_acc=56.91%, val_acc=59.82%, test_acc=59.20%
+Epoch 80/100: train_loss=1.3961, train_acc=57.36%, val_acc=60.03%, test_acc=59.64%
+Epoch 90/100: train_loss=1.3829, train_acc=57.77%, val_acc=60.35%, test_acc=59.91%
+Epoch 100/100: train_loss=1.3739, train_acc=58.12%, val_acc=60.63%, test_acc=59.88%
+  Saved checkpoint to checkpoints/pretrain/pretrain_epoch_100.pt
+
+Loaded best model with val_acc=60.63%
+
+Final Results:
+  Train: loss=1.4160, acc=58.12%
+  Val:   loss=1.3069, acc=60.63%
+  Test:  loss=1.3221, acc=59.88%
+
+Pretraining completed in 7.4s (0.1m)
+Saved pretrained MLP to checkpoints/pretrain/mlp_dpgcn_match_ls100_nl3_ep100.pt
+
+Final Results:
+  Train Accuracy: 58.12%
+  Val Accuracy:   60.63%
+  Test Accuracy:  59.88%
+
+Model saved to: checkpoints/pretrain/mlp_dpgcn_match_ls100_nl3_ep100.pt

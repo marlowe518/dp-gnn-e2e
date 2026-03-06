@@ -1,0 +1,9 @@
+Starting experiments at Fri Mar  6 05:42:37 UTC 2026
+=== Experiment 2: Baseline DP-GCN (noise=4.0, 500 steps) ===
+=== Experiment 3: Pretrained DP-GCN (noise=4.0, 500 steps, encoder_only) ===
+=== Experiment 4: Pretrained with encoder_classifier transfer ===
+=== Experiment 5: Baseline with noise=6.0 (more steps for same epsilon) ===
+=== Experiment 6: Pretrained with noise=6.0 (encoder_classifier) ===
+=== Experiment 7: Pretrained with freeze (first 100 steps) ===
+=== Experiment 8: Pretrained with 1000 steps ===
+=== Experiment 9: Baseline with 1000 steps ===

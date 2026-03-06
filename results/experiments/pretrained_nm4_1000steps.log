@@ -1,0 +1,57 @@
+============================================================
+DP-GCN Finetuning with Pretrained Init
+============================================================
+Latent size: 100
+Num steps: 1000
+Batch size: 10000
+Learning rate: 0.003
+Noise multiplier: 4.0
+Device: cuda
+Seed: 0
+Pretrain checkpoint: checkpoints/pretrain/mlp_dpgcn_match_ls100_nl3_ep100.pt
+Transfer strategy: encoder_classifier
+Freeze epochs: 0
+============================================================
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Building subgraphs...
+Loading pretrained MLP from checkpoints/pretrain/mlp_dpgcn_match_ls100_nl3_ep100.pt...
+Transferred 4 parameters
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds computed
+Base sensitivity: 12.0
+Initial: train_acc=29.55%, val_acc=30.05%
+Step   50: ε=1.69, train=53.28%, val=54.19%, test=54.45%
+Step  100: ε=2.19, train=55.42%, val=55.97%, test=56.14%
+Step  150: ε=2.66, train=56.36%, val=56.93%, test=56.85%
+Step  200: ε=3.08, train=56.81%, val=56.96%, test=56.75%
+Step  250: ε=3.45, train=57.27%, val=57.07%, test=56.88%
+Step  300: ε=3.79, train=57.42%, val=57.31%, test=56.72%
+Step  350: ε=4.11, train=57.82%, val=57.40%, test=57.13%
+Step  400: ε=4.42, train=58.02%, val=57.54%, test=56.98%
+Step  450: ε=4.71, train=58.11%, val=57.49%, test=56.80%
+Step  500: ε=4.98, train=58.24%, val=58.01%, test=57.20%
+Step  550: ε=5.25, train=58.44%, val=58.04%, test=57.18%
+Step  600: ε=5.51, train=58.58%, val=58.30%, test=57.46%
+Step  650: ε=5.75, train=58.47%, val=58.21%, test=57.62%
+Step  700: ε=5.99, train=58.54%, val=58.36%, test=57.70%
+Step  750: ε=6.23, train=58.73%, val=58.52%, test=57.59%
+Step  800: ε=6.46, train=58.77%, val=58.34%, test=57.77%
+Step  850: ε=6.68, train=58.88%, val=58.52%, test=57.92%
+Step  900: ε=6.90, train=58.75%, val=58.34%, test=57.72%
+Step  950: ε=7.11, train=58.86%, val=58.54%, test=57.87%
+Step  999: ε=7.32, train=58.88%, val=58.53%, test=57.97%
+
+Best: step=950, val_acc=58.54%, test_acc=57.87%
+
+Finetuning completed in 255.6s (4.3m)

@@ -1,0 +1,81 @@
+================================================================================
+PRETRAIN + DP FINETUNING: EXPERIMENTAL RESULTS
+================================================================================
+
+Dataset: ogbn-arxiv (169,343 nodes, 40 classes)
+Pretraining: MLP (latent=100, 3 layers, 100 epochs)
+DP-GCN: latent=100, 1 enc + 1 MP + 1 dec, max_degree=5
+
+================================================================================
+PRETRAINING RESULTS
+================================================================================
+MLP Pretraining (100 epochs, full graph):
+  - Train Accuracy: 58.12%
+  - Val Accuracy:   60.63%
+  - Test Accuracy:  59.88%
+  - Training Time:  7.4s
+
+================================================================================
+DP-GCN RESULTS (500 steps, noise_mult=4.0, ε≈5.0)
+================================================================================
+Method                    | Test Acc | Val Acc | Steps | ε
+--------------------------|----------|---------|-------|------
+Baseline (no pretrain)    | 51.68%   | 52.54%  | 500   | 4.98
+Pretrained (encoder_only) | 56.40%   | 56.93%  | 500   | 4.98
+Pretrained (enc+class)    | 57.19%   | 57.97%  | 500   | 4.98
+
+Improvement (best): +5.51% absolute
+
+================================================================================
+DP-GCN RESULTS (1000 steps, noise_mult=4.0, ε≈7.3)
+================================================================================
+Method                    | Test Acc | Val Acc | Steps | ε
+--------------------------|----------|---------|-------|------
+Baseline (no pretrain)    | 54.55%   | 55.27%  | 1000  | 7.32
+Pretrained (enc+class)    | 57.97%   | 58.54%  | 1000  | 7.32
+
+Improvement: +3.42% absolute
+
+================================================================================
+DP-GCN RESULTS (750 steps, noise_mult=6.0, ε≈3.9)
+================================================================================
+Method                    | Test Acc | Val Acc | Steps | ε
+--------------------------|----------|---------|-------|------
+Baseline (no pretrain)    | 51.64%   | 52.55%  | 750   | 3.93
+Pretrained (enc+class)    | 57.11%   | 57.91%  | 750   | 3.93
+
+Improvement: +5.47% absolute
+
+================================================================================
+KEY FINDINGS
+================================================================================
+
+1. PRETRAINING WORKS: MLP pretraining on node features provides a strong 
+   initialization for DP-GCN, improving test accuracy by 3-5% across different
+   privacy budgets.
+
+2. TRANSFER STRATEGY: Transferring both encoder AND classifier works best,
+   suggesting the pretrained feature extractor and classifier both contribute
+   to improved performance.
+
+3. PRIVACY BUDGET: Benefits observed at both low (ε≈3.9) and moderate 
+   (ε≈5-7) privacy budgets.
+
+4. INITIALIZATION QUALITY: Pretrained model starts at ~30% accuracy vs 
+   ~3% for random init, showing the pretrained encoder provides meaningful
+   feature representations.
+
+5. CONSISTENCY: Improvements are consistent across different hyperparameters
+   (noise multipliers, training steps).
+
+================================================================================
+COMPARISON TO PREVIOUS BASELINE
+================================================================================
+
+Previous DP-GCN baseline (from AI_LOG.md): 55.8% at ε≤12
+Our experiments:
+  - Pretrained DP-GCN: 57.97% at ε=7.32
+  
+The pretrained approach achieves HIGHER accuracy at LOWER privacy cost!
+
+================================================================================

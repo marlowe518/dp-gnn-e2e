@@ -1,0 +1,52 @@
+============================================================
+DP-GCN Finetuning (Baseline)
+============================================================
+Latent size: 100
+Num steps: 1000
+Batch size: 10000
+Learning rate: 0.003
+Noise multiplier: 4.0
+Device: cuda
+Seed: 0
+============================================================
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Computing disjoint edge filter...
+Disjoint filter: 1166243 -> 464361 edges
+Num training nodes: 90941
+Building subgraphs...
+Model parameters: 27040
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds computed
+Base sensitivity: 12.0
+Initial: train_acc=3.68%, val_acc=2.60%
+Step   50: ε=1.69, train=27.95%, val=29.63%, test=27.18%
+Step  100: ε=2.19, train=37.09%, val=38.34%, test=37.93%
+Step  150: ε=2.66, train=42.05%, val=43.46%, test=43.33%
+Step  200: ε=3.08, train=43.86%, val=45.06%, test=44.22%
+Step  250: ε=3.45, train=45.58%, val=46.83%, test=45.72%
+Step  300: ε=3.79, train=46.94%, val=48.72%, test=47.95%
+Step  350: ε=4.11, train=48.34%, val=50.17%, test=49.35%
+Step  400: ε=4.42, train=49.36%, val=51.06%, test=50.44%
+Step  450: ε=4.71, train=50.51%, val=52.13%, test=51.23%
+Step  500: ε=4.98, train=51.34%, val=52.59%, test=51.72%
+Step  550: ε=5.25, train=52.01%, val=53.03%, test=51.89%
+Step  600: ε=5.51, train=52.81%, val=53.62%, test=52.62%
+Step  650: ε=5.75, train=53.20%, val=53.92%, test=52.75%
+Step  700: ε=5.99, train=53.65%, val=54.13%, test=53.09%
+Step  750: ε=6.23, train=53.93%, val=54.45%, test=53.28%
+Step  800: ε=6.46, train=54.30%, val=54.53%, test=53.26%
+Step  850: ε=6.68, train=54.45%, val=54.81%, test=53.75%
+Step  900: ε=6.90, train=54.73%, val=55.00%, test=53.78%
+Step  950: ε=7.11, train=54.85%, val=55.24%, test=54.11%
+Step  999: ε=7.32, train=54.98%, val=55.27%, test=54.55%
+
+Best: step=999, val_acc=55.27%, test_acc=54.55%
+
+Finetuning completed in 253.9s (4.2m)
