@@ -1,0 +1,1300 @@
+============================================================
+DP-MLP Pretraining
+============================================================
+Setting: transductive
+Epochs: 100
+Device: cuda
+Seed: 0
+Output dir: results/experiments/epsilon_sweep_transductive
+============================================================
+
+============================================================
+Running: eps_0.1
+============================================================
+Dataset: ogbn-arxiv
+Noise multiplier: 5.0
+Max epsilon: 0.1
+Epochs: 100
+Batch size: 10000
+Learning rate: 0.003
+Device: cuda
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Using TRAIN nodes only for DP pretraining (90941 nodes)
+Num pretraining nodes: 90941
+Num total nodes: 169343
+Feature dim: 128
+Model parameters: 27040
+DP settings: noise_multiplier=5.0, clip_percentile=75.0, target_delta=1.10e-06
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'mlp.layers.0.weight': 2.614782452583313, 'mlp.layers.0.bias': 0.9954105168581009, 'mlp.layers.1.weight': 2.3563734889030457, 'mlp.layers.1.bias': 1.0142624378204346, 'mlp.layers.2.weight': 2.2517213821411133, 'mlp.layers.2.bias': 0.9915453344583511}
+
+Stopping: epsilon (0.13) exceeded max (0.10)
+Epoch 1/100 (steps=1, ε=0.13): train_loss=3.7255, train_acc=1.64%, val_acc=0.88%, test_acc=0.74%
+
+Loaded best model with val_acc=0.88%, ε=0.13
+
+Final Results (ε=0.13):
+  Train: loss=3.7256, acc=1.64%
+  Val:   loss=3.7634, acc=0.88%
+  Test:  loss=3.7773, acc=0.74%
+Saved DP-pretrained MLP to results/experiments/epsilon_sweep_transductive/mlp_eps_0.1.pt
+
+Results for eps_0.1:
+  Final epsilon: 0.13
+  Train accuracy: 1.64%
+  Val accuracy: 0.88%
+  Test accuracy: 0.74%
+  Training time: 26.0s
+  Model saved: results/experiments/epsilon_sweep_transductive/mlp_eps_0.1.pt
+  Results saved: results/experiments/epsilon_sweep_transductive/results_eps_0.1.json
+
+============================================================
+Running: eps_0.5
+============================================================
+Dataset: ogbn-arxiv
+Noise multiplier: 5.0
+Max epsilon: 0.5
+Epochs: 100
+Batch size: 10000
+Learning rate: 0.003
+Device: cuda
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Using TRAIN nodes only for DP pretraining (90941 nodes)
+Num pretraining nodes: 90941
+Num total nodes: 169343
+Feature dim: 128
+Model parameters: 27040
+DP settings: noise_multiplier=5.0, clip_percentile=75.0, target_delta=1.10e-06
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'mlp.layers.0.weight': 2.614782452583313, 'mlp.layers.0.bias': 0.9954105168581009, 'mlp.layers.1.weight': 2.3563734889030457, 'mlp.layers.1.bias': 1.0142624378204346, 'mlp.layers.2.weight': 2.2517213821411133, 'mlp.layers.2.bias': 0.9915453344583511}
+
+Stopping: epsilon (0.51) exceeded max (0.50)
+Epoch 3/100 (steps=24, ε=0.51): train_loss=3.7185, train_acc=1.60%, val_acc=1.01%, test_acc=0.87%
+
+Loaded best model with val_acc=1.01%, ε=0.51
+
+Final Results (ε=0.51):
+  Train: loss=3.7176, acc=1.60%
+  Val:   loss=3.7489, acc=1.01%
+  Test:  loss=3.7583, acc=0.87%
+Saved DP-pretrained MLP to results/experiments/epsilon_sweep_transductive/mlp_eps_0.5.pt
+
+Results for eps_0.5:
+  Final epsilon: 0.51
+  Train accuracy: 1.60%
+  Val accuracy: 1.01%
+  Test accuracy: 0.87%
+  Training time: 52.2s
+  Model saved: results/experiments/epsilon_sweep_transductive/mlp_eps_0.5.pt
+  Results saved: results/experiments/epsilon_sweep_transductive/results_eps_0.5.json
+
+============================================================
+Running: eps_1.0
+============================================================
+Dataset: ogbn-arxiv
+Noise multiplier: 5.0
+Max epsilon: 1.0
+Epochs: 100
+Batch size: 10000
+Learning rate: 0.003
+Device: cuda
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Using TRAIN nodes only for DP pretraining (90941 nodes)
+Num pretraining nodes: 90941
+Num total nodes: 169343
+Feature dim: 128
+Model parameters: 27040
+DP settings: noise_multiplier=5.0, clip_percentile=75.0, target_delta=1.10e-06
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'mlp.layers.0.weight': 2.614782452583313, 'mlp.layers.0.bias': 0.9954105168581009, 'mlp.layers.1.weight': 2.3563734889030457, 'mlp.layers.1.bias': 1.0142624378204346, 'mlp.layers.2.weight': 2.2517213821411133, 'mlp.layers.2.bias': 0.9915453344583511}
+
+Stopping: epsilon (1.00) exceeded max (1.00)
+Epoch 10/100 (steps=92, ε=1.00): train_loss=3.6613, train_acc=2.02%, val_acc=1.22%, test_acc=0.96%
+
+Loaded best model with val_acc=1.22%, ε=1.00
+
+Final Results (ε=1.00):
+  Train: loss=3.6595, acc=2.02%
+  Val:   loss=3.6911, acc=1.22%
+  Test:  loss=3.7050, acc=0.96%
+Saved DP-pretrained MLP to results/experiments/epsilon_sweep_transductive/mlp_eps_1.0.pt
+
+Results for eps_1.0:
+  Final epsilon: 1.00
+  Train accuracy: 2.02%
+  Val accuracy: 1.22%
+  Test accuracy: 0.96%
+  Training time: 137.3s
+  Model saved: results/experiments/epsilon_sweep_transductive/mlp_eps_1.0.pt
+  Results saved: results/experiments/epsilon_sweep_transductive/results_eps_1.0.json
+
+============================================================
+Running: eps_2.0
+============================================================
+Dataset: ogbn-arxiv
+Noise multiplier: 2.0
+Max epsilon: 2.0
+Epochs: 100
+Batch size: 10000
+Learning rate: 0.003
+Device: cuda
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Using TRAIN nodes only for DP pretraining (90941 nodes)
+Num pretraining nodes: 90941
+Num total nodes: 169343
+Feature dim: 128
+Model parameters: 27040
+DP settings: noise_multiplier=2.0, clip_percentile=75.0, target_delta=1.10e-06
+Estimating clipping thresholds from 10000 samples...
+Clipping thresholds: {'mlp.layers.0.weight': 2.614782452583313, 'mlp.layers.0.bias': 0.9954105168581009, 'mlp.layers.1.weight': 2.3563734889030457, 'mlp.layers.1.bias': 1.0142624378204346, 'mlp.layers.2.weight': 2.2517213821411133, 'mlp.layers.2.bias': 0.9915453344583511}
+
+Stopping: epsilon (2.02) exceeded max (2.00)
+Epoch 4/100 (steps=37, ε=2.02): train_loss=3.6718, train_acc=1.71%, val_acc=1.23%, test_acc=1.10%
+
+Loaded best model with val_acc=1.23%, ε=2.02
+
+Final Results (ε=2.02):
+  Train: loss=3.6673, acc=1.71%
+  Val:   loss=3.6946, acc=1.23%
+  Test:  loss=3.7049, acc=1.10%
+Saved DP-pretrained MLP to results/experiments/epsilon_sweep_transductive/mlp_eps_2.0.pt
+
+Results for eps_2.0:
+  Final epsilon: 2.02
+  Train accuracy: 1.71%
+  Val accuracy: 1.23%
+  Test accuracy: 1.10%
+  Training time: 63.6s
+  Model saved: results/experiments/epsilon_sweep_transductive/mlp_eps_2.0.pt
+  Results saved: results/experiments/epsilon_sweep_transductive/results_eps_2.0.json
+
+============================================================
+Running: eps_5.0
+============================================================
+Dataset: ogbn-arxiv
+Noise multiplier: 2.0
+Max epsilon: 5.0
+Epochs: 100
+Batch size: 10000
+Learning rate: 0.003
+Device: cuda
+Using device: cuda
+Reading node features from datasets/ogbn_arxiv/raw/node-feat.csv.gz...
+Node features loaded: (169343, 128)
+Reading node labels...
+Node labels loaded: (169343,)
+Reading edges...
+Edges loaded: 1166243
+Reading splits...
+Splits: train=90941, val=29799, test=48603
+Using TRAIN nodes only for DP pretraining (90941 nodes)
+Num pretraining nodes: 90941
+Num total nodes: 169343
+Feature dim: 128
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=1.000000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.500000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.600000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.100000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.200000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.300000. Excluding this order from the epsilon computation.
+WARNING:absl:_compute_log_a_frac failed to converge after 1000 iterations with q=0.109961, sigma=0.500000, alpha=1.400000. Excluding this order from the epsilon computation.

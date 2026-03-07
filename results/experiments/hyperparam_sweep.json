@@ -1,0 +1,29 @@
+[
+  {
+    "label": "fullbatch_clean",
+    "noise_mult": 0.0,
+    "batch_size": 90941,
+    "lr": 0.003,
+    "test_acc": 35.73853373527527,
+    "steps": 20,
+    "epsilon": 9999
+  },
+  {
+    "label": "minibatch_clean",
+    "noise_mult": 0.0,
+    "batch_size": 10000,
+    "lr": 0.003,
+    "test_acc": 47.57113754749298,
+    "steps": 200,
+    "epsilon": 9999
+  },
+  {
+    "label": "fullbatch_nm0.1",
+    "noise_mult": 0.1,
+    "batch_size": 90941,
+    "lr": 0.003,
+    "test_acc": 5.890582874417305,
+    "steps": 20,
+    "epsilon": 1233.8545160948966
+  }
+]
