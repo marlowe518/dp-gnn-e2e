@@ -1,0 +1,33 @@
+{
+  "stage": "full_pipeline_dp",
+  "pretrain": {
+    "test_acc": 0.4394,
+    "val_acc": 0.4624,
+    "train_acc": 0.4329,
+    "epsilon": 3050832.63,
+    "config": {
+      "noise_multiplier": 0.006,
+      "clip_percentile": 50.0,
+      "learning_rate": 0.015,
+      "batch_size": 10000,
+      "num_epochs": 20
+    }
+  },
+  "finetune": {
+    "test_acc": 0.6151,
+    "val_acc": 0.6173,
+    "train_acc": 0.5606,
+    "epsilon": 7.32,
+    "config": {
+      "noise_multiplier": 4.0,
+      "learning_rate": 0.003,
+      "num_steps": 1000
+    }
+  },
+  "summary": {
+    "pretrain_time": 45.0,
+    "finetune_time": 200.0,
+    "total_time": 245.0,
+    "total_epsilon": "\u03b5\u2081 + \u03b5\u2082 (composition)"
+  }
+}

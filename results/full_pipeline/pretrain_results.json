@@ -1,0 +1,1 @@
+{"test_acc": 0.4393555819988251, "val_acc": 0.46239805221557617, "train_acc": 0.43292903900146484, "epsilon": 3050832.633198123, "checkpoint_path": "results/full_pipeline/dp_mlp_pretrained.pt"}
